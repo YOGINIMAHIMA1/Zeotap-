@@ -1,130 +1,147 @@
-Application 1 : Rule Engine with AST
-Objective:
-Develop a simple 3-tier rule engine application(Simple UI, API and Backend, Data) to determine
-user eligibility based on attributes like age, department, income, spend etc.The system can use
-Abstract Syntax Tree (AST) to represent conditional rules and allow for dynamic
-creation,combination, and modification of these rules.
-Data Structure:
-● Define a data structure to represent the AST.
-● The data structure should allow rule changes
-● E,g One data structure could be Node with following fields
-○ type: String indicating the node type ("operator" for AND/OR, "operand" for
-conditions)
-○ left: Reference to another Node (left child)
-○ right: Reference to another Node (right child for operators)
-○ value: Optional value for operand nodes (e.g., number for comparisons)
-Data Storage
-● Define the choice of database for storing the above rules and application metadata
-● Define the schema with samples.
-Sample Rules:
-● rule1 = "((age > 30 AND department = 'Sales') OR (age < 25 AND
-department = 'Marketing')) AND (salary > 50000 OR experience >
-5)"
-● rule2 = "((age > 30 AND department = 'Marketing')) AND (salary >
-20000 OR experience > 5)"
-API Design:
-1. create_rule(rule_string): This function takes a string representing a rule (as
-shown in the examples) and returns a Node object representing the corresponding AST.
-2. combine_rules(rules): This function takes a list of rule strings and combines them
-into a single AST. It should consider efficiency and minimize redundant checks. You can
-explore different strategies (e.g., most frequent operator heuristic). The function should
-return the root node of the combined AST.
-3. evaluate_rule(JSON data): This function takes a JSON representing the combined
-rule's AST and a dictionary data containing attributes (e.g., data = {"age": 35,
-"department": "Sales", "salary": 60000, "experience": 3}). The
-function should evaluate the rule against the provided data and return True if the user is
-of that cohort based on the rule, False otherwise.
-Test Cases:
-1. Create individual rules from the examples using create_rule and verify their AST
-representation.
-2. Combine the example rules using combine_rules and ensure the resulting AST
-reflects the combined logic.
-3. Implement sample JSON data and test evaluate_rule for different scenarios.
-4. Explore combining additional rules and test the functionality.
-Bonus:
-● Implement error handling for invalid rule strings or data formats (e.g., missing operators,
-invalid comparisons).
-● Implement validations for attributes to be part of a catalog.
-● Allow for modification of existing rules using additional functionalities within
-create_rule or separate functions.This could involve changing operators, operand
-values, or adding/removing sub-expressions within the AST.
-● Consider extending the system to support user-defined functions within the rule
-language for advanced conditions (outside the scope of this exercise).
-Application 2 : Real-Time Data Processing System for
-Weather Monitoring with Rollups and Aggregates
-Objective:
-Develop a real-time data processing system to monitor weather conditions and provide
-summarized insights using rollups and aggregates. The system will utilize data from the
-OpenWeatherMap API (https://openweathermap.org/).
-Data Source:
-The system will continuously retrieve weather data from the OpenWeatherMap API. You will
-need to sign up for a free API key to access the data. The API provides various weather
-parameters, and for this assignment, we will focus on:
-● main: Main weather condition (e.g., Rain, Snow, Clear)
-● temp: Current temperature in Centigrade
-● feels_like: Perceived temperature in Centigrade
-● dt: Time of the data update (Unix timestamp)
-Processing and Analysis:
-● The system should continuously call the OpenWeatherMap API at a configurable interval
-(e.g., every 5 minutes) to retrieve real-time weather data for the metros in India. (Delhi,
-Mumbai, Chennai, Bangalore, Kolkata, Hyderabad)
-● For each received weather update:
-○ Convert temperature values from Kelvin to Celsius (tip : you can also use user
-preference).
-Rollups and Aggregates:
-1. Daily Weather Summary:
-○ Roll up the weather data for each day.
-○ Calculate daily aggregates for:
-■ Average temperature
-■ Maximum temperature
-■ Minimum temperature
-■ Dominant weather condition (give reason on this)
-○ Store the daily summaries in a database or persistent storage for further analysis.
-2. Alerting Thresholds:
-○ Define user-configurable thresholds for temperature or specific weather
-conditions (e.g., alert if temperature exceeds 35 degrees Celsius for two
-consecutive updates).
-○ Continuously track the latest weather data and compare it with the thresholds.
-○ If a threshold is breached, trigger an alert for the current weather conditions.
-Alerts could be displayed on the console or sent through an email notification
-system (implementation details left open-ended).
-3. Implement visualizations:
-○ To display daily weather summaries, historical trends, and triggered alerts.
-Test Cases:
-1. System Setup:
-○ Verify system starts successfully and connects to the OpenWeatherMap API
-using a valid API key.
-2. Data Retrieval:
-○ Simulate API calls at configurable intervals.
-○ Ensure the system retrieves weather data for the specified location and parses
-the response correctly.
-3. Temperature Conversion:
-○ Test conversion of temperature values from Kelvin to Celsius (or Fahrenheit)
-based on user preference.
-4. Daily Weather Summary:
-○ Simulate a sequence of weather updates for several days.
-○ Verify that daily summaries are calculated correctly, including average, maximum,
-minimum temperatures,and dominant weather condition.
-5. Alerting Thresholds:
-○ Define and configure user thresholds for temperature or weather conditions.
-○ Simulate weather data exceeding or breaching the thresholds.
-○ Verify that alerts are triggered only when a threshold is violated.
-Bonus:
-● Extend the system to support additional weather parameters from the OpenWeatherMap
-API (e.g., humidity, wind speed) and incorporate them into rollups/aggregates.
-● Explore functionalities like weather forecasts retrieval and generating summaries based
-on predicted conditions.
-Evaluation:
-The assignment will be evaluated based on the following criteria:
-● Functionality and correctness of the real-time data processing system.
-● Accuracy of data parsing, temperature conversion, and rollup/aggregate calculations.
-● Efficiency of data retrieval and processing within acceptable intervals.
-● Completeness of test cases covering various weather scenarios and user configurations.
-● Clarity and maintainability of the codebase.
-● (Bonus) Implementation of additional features.
-Artifacts To be Submitted For the Assignments
-● Codebase - preferably a github handle
-● Readme should be comprehensive - build instructions and design choices are
-mandatory
-● Readme should contain dependencies to download for setting up and running the
-application. E.g a webserver, Database all can be docker or podman containers
+# Zeotap Assignment
+
+This repository contains two applications developed for the Zeotap assignment:
+
+1. **Rule Engine with AST**: A 3-tier rule engine that evaluates user eligibility based on dynamically created and evaluated rules represented using an Abstract Syntax Tree (AST).
+2. **Real-Time Data Processing System for Weather Monitoring**: A real-time data processing system that monitors weather conditions using the OpenWeatherMap API and provides summarized insights with rollups and aggregates.
+
+---
+
+## Application 1: Rule Engine with AST
+
+### Objective
+
+Develop a rule engine application with a simple UI, API, and backend to determine user eligibility based on attributes like age, department, income, spend, etc. The engine uses an Abstract Syntax Tree (AST) to represent conditional rules, allowing dynamic creation, combination, and modification of these rules.
+
+### Key Features
+
+- **AST-based Rule Representation**: Parse rules into an AST structure for dynamic evaluation.
+- **Rule Combination**: Combine multiple rules using logical operators (`AND`, `OR`).
+- **Rule Evaluation**: Evaluate user data based on parsed rules.
+- **SQLite Integration**: Store rules in a database for persistence.
+
+### Design Choices
+
+- **Data Structure**: The AST is represented using a `Node` structure, with fields:
+  - `type`: Type of node (`operator` or `operand`).
+  - `left`, `right`: References to child nodes for operators.
+  - `value`: Operand value for condition nodes (e.g., `age > 30`).
+- **Database**: SQLite is used for rule persistence and metadata storage.
+
+### Database Schema
+
+sql
+CREATE TABLE rules (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    rule_string TEXT NOT NULL
+);
+# Sample Rule Representation
+rule1: ((age > 30 AND department = 'Sales') OR (age < 25 AND department = 'Marketing')) AND (salary > 50000 OR experience > 5)
+rule2: ((age > 30 AND department = 'Marketing')) AND (salary > 20000 OR experience > 5)
+#  API Endpoints
+- create_rule(rule_string): Parses a rule string and returns the AST representation.
+-  combine_rules(rules): Combines multiple ASTs into one.
+evaluate_rule(data): Evaluates the rule against a JSON data structure (e.g., {"age": 35, "department": "Sales", "salary": 60000}).
+ #  Installation
+#  Prerequisites
+C++ Compiler (e.g., GCC or Clang).
+- SQLite: Install SQLite for rule persistence.
+- Docker (optional): If using Docker to containerize the application.
+Build Instructions
+`Clone the Repository:`
+
+- git clone https://github.com/your-username/zeotap-rule-engine.git
+- cd zeotap-rule-engine
+- Install SQLite:
+
+`sudo apt-get install sqlite3 libsqlite3-dev`
+Compile the Application:
+
+`g++ -std=c++11 RuleEngine.cpp -o rule_engine -lsqlite3`
+- Run the Application:
+
+- ./rule_engine
+`Docker Setup`
+- Build Docker Image:
+
+- docker build -t rule-engine .
+- Run Docker Container:
+
+
+`docker run -d rule-engine`
+`Test Cases`
+- Create individual rules using create_rule.
+- Combine rules using combine_rules.
+- Evaluate the rules using sample JSON data in evaluate_rule.
+- Future Enhancements
+- Implement error handling for invalid rules.
+- Modify existing rules dynamically.
+#    Application 2: Real-Time Data Processing System for Weather Monitoring
+` Objective`
+- Develop a real-time data processing system that monitors weather conditions and provides summarized insights using rollups and aggregates. The system retrieves weather data from the OpenWeatherMap API and performs analysis to calculate daily weather summaries and trigger alerts.
+
+#  Key Features
+- Real-Time Weather Monitoring: Continuously retrieve weather data at configurable intervals (e.g., every 5 minutes).
+`Rollups & Aggregates:`
+- Calculate daily averages, maximum/minimum temperatures, and dominant weather conditions.
+- User-configurable alert thresholds for extreme weather conditions.
+- Visualization: Display daily weather summaries and alerts.
+#  Design Choices
+- API: OpenWeatherMap API is used to retrieve weather data for cities in India (Delhi, Mumbai, Chennai, Bangalore, Kolkata, Hyderabad).
+-  Alert System: Triggers alerts if temperature exceeds user-defined thresholds for consecutive updates.
+- Persistent Storage: Weather data is stored in a database for historical analysis.
+# API Endpoints
+- /weather/summary: Retrieves daily weather summaries.
+- /weather/alerts: Displays active weather alerts.
+- /weather/history: Shows historical weather trends.
+#  Installation
+`Prerequisites`
+- g++ Compiler
+- SQLite (for data storage)
+OpenWeatherMap API Key: Sign up for a free API key here.
+Build Instructions
+Clone the Repository:
+
+git clone https://github.com/your-username/weather-monitoring-system.git
+cd weather-monitoring-system
+
+
+Set Up Environment Variables:
+
+export OWM_API_KEY='your-openweathermap-api-key'
+Run the Application:
+
+
+Docker Setup
+Build Docker Image:
+
+docker build -t weather-monitor .
+Run Docker Container:
+
+
+# docker run -d weather-monitor
+- Test Cases
+- Verify API connection to OpenWeatherMap.
+- Simulate data retrieval at configurable intervals.
+Test temperature conversions from Kelvin to Celsius/Fahrenheit.
+Generate daily weather summaries and trigger alerts for extreme conditions.
+Future Enhancements
+Support for additional weather parameters (humidity, wind speed).
+Extend alert system with email notifications.
+Dependencies
+For both applications, the dependencies are:
+
+# SQLite for database operations.
+Docker (optional) for containerized setup.
+OpenWeatherMap API Key for real-time weather data.
+Make sure to install the necessary dependencies before running the applications.
+
+# License
+This project is licensed under the MIT License.
+
+# Contact
+- For any questions, feel free to reach out:
+
+- Your Name: your.email@example.com
+
+This `README.md` provides a clear and professional outline for both applications, covering installation instructions, design choices, API endpoints, test cases, and future improvements.
