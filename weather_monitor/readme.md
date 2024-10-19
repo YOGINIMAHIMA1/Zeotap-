@@ -47,8 +47,7 @@
 - Install the required dependencies (for Ubuntu users):
 
  `sudo apt install libcurl4-openssl-dev libsqlite3-dev libjsoncpp-dev`
-Clone this repository:
-
+* Clone this repository:
 - git clone <repository_url>
 - cd weather_monitor
 - Compile the source code:
