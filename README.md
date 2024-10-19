@@ -42,6 +42,9 @@ rule2: ((age > 30 AND department = 'Marketing')) AND (salary > 20000 OR experien
 - create_rule(rule_string): Parses a rule string and returns the AST representation.
 -  combine_rules(rules): Combines multiple ASTs into one.
 evaluate_rule(data): Evaluates the rule against a JSON data structure (e.g., {"age": 35, "department": "Sales", "salary": 60000}).
+
+![image](https://github.com/user-attachments/assets/0d4cf395-a85d-4e70-92b9-12391b1cf8d7)
+
  #  Installation
 #  Prerequisites
 C++ Compiler (e.g., GCC or Clang).
@@ -61,6 +64,9 @@ Compile the Application:
 - Run the Application:
 
 - ./rule_engine
+
+  ![image](https://github.com/user-attachments/assets/b009fdfc-12db-47bd-94a0-2767dc69fb70)
+
 `Docker Setup`
 - Build Docker Image:
 
@@ -111,12 +117,7 @@ Set Up Environment Variables:
 export OWM_API_KEY='your-openweathermap-api-key'
 Run the Application:
 
-
-Docker Setup
-Build Docker Image:
-
-docker build -t weather-monitor .
-Run Docker Container:
+![image](https://github.com/user-attachments/assets/16d9b721-3e4c-45c2-ace4-822650b43305)
 
 
 # docker run -d weather-monitor
@@ -135,6 +136,8 @@ For both applications, the dependencies are:
 Docker (optional) for containerized setup.
 OpenWeatherMap API Key for real-time weather data.
 Make sure to install the necessary dependencies before running the applications.
+
+![image](https://github.com/user-attachments/assets/63bce9c6-fbb7-48eb-8733-8edfcee6ecbe)
 
 # License
 This project is licensed under the MIT License.
