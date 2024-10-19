@@ -69,7 +69,8 @@ By default, the application will:
 - Trigger alerts based on predefined thresholds.
 - You can modify the weather-fetching interval and alert thresholds by editing the source code.
 
-  ![image](https://github.com/user-attachments/assets/f2ef81c7-9299-44dc-988c-8ea3eb138e0a)
+![image](https://github.com/user-attachments/assets/205a9e05-bb97-4a77-b11a-de42046f0381)
+
 
 
 # Database Structure
@@ -87,6 +88,10 @@ The application uses a SQLite database weather_data.db. The key table DailyWeath
 - Daily Summaries: Calculates daily weather averages, maximums, and minimums.
 - Alerts: Customizable thresholds for extreme weather conditions.
 - Data Persistence: Stores historical data in SQLite for analysis.
+
+
+   ![image](https://github.com/user-attachments/assets/08ee0090-f1dd-4a64-a395-93cb5e6f9102)
+
 # Testing
 `Test Cases`
 - API Connection: Verify the successful connection to the OpenWeatherMap API.
@@ -94,6 +99,8 @@ The application uses a SQLite database weather_data.db. The key table DailyWeath
 - Temperature Conversion: Check that temperatures are correctly converted from Kelvin to Celsius.
 - Daily Summaries: Validate that the daily aggregates (avg, max, min temperatures) are correctly calculated.
 - Alerts: Ensure alerts are triggered when the set thresholds are exceeded.
+
+    ![image](https://github.com/user-attachments/assets/9c755629-b5e9-4a30-ad92-cac3a889fc0b)
 # Conclusion
 - The Weather Monitoring System provides an efficient way to track weather conditions in real-time. It processes the retrieved data, summarizes key information, and offers customizable alerts for extreme weather conditions. The SQLite database ensures persistence of weather data, allowing users to analyze past weather patterns.
 
