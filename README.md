@@ -35,12 +35,13 @@ CREATE TABLE rules (
     rule_string TEXT NOT NULL
 );
 # Sample Rule Representation
-rule1: ((age > 30 AND department = 'Sales') OR (age < 25 AND department = 'Marketing')) AND (salary > 50000 OR experience > 5)
+
+` rule1: ((age > 30 AND department = 'Sales') OR (age < 25 AND department = 'Marketing')) AND (salary > 50000 OR experience > 5)
 rule2: ((age > 30 AND department = 'Marketing')) AND (salary > 20000 OR experience > 5)
 #  API Endpoints
 - create_rule(rule_string): Parses a rule string and returns the AST representation.
 -  combine_rules(rules): Combines multiple ASTs into one.
-evaluate_rule(data): Evaluates the rule against a JSON data structure (e.g., {"age": 35, "department": "Sales", "salary": 60000}).
+evaluate_rule(data): Evaluates the rule against a JSON data structure (e.g., {"age": 35, "department": "Sales", "salary": 60000}).`
 
 ![image](https://github.com/user-attachments/assets/0d4cf395-a85d-4e70-92b9-12391b1cf8d7)
 
