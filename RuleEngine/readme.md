@@ -20,7 +20,7 @@
 ## Project Structure
 
 ├── RuleEngine.cpp   # Main source code file containing rule parsing, evaluation, and database operations
-├── rules.db         # SQLite database for storing rules (created automatically)
+├── mydatabase.db         # SQLite database for storing rules (created automatically)
 └── README.md        # Project documentation (this file)
 #  Getting Started
 `Prerequisites`
@@ -29,19 +29,23 @@
 - Make (optional): You can use Make to simplify the build process.
 #  Installation
 - Clone the repository:
+- compile the code
+![image](https://github.com/user-attachments/assets/b63ab333-9ed9-4f08-a3f5-60427249fbc0)
 
-
-`git clone https://github.com/your-username/zeotap-rule-engine.git`
 `cd zeotap-rule-engine`
 - Install SQLite (if not already installed):
+  ![image](https://github.com/user-attachments/assets/39475ce2-fe60-4e79-a6ed-1c7eb7637b0a)
+
 
 `For Ubuntu/Debian:`
 
 - sudo apt-get install sqlite3 libsqlite3-dev
 `Compile the project:`
+![image](https://github.com/user-attachments/assets/b63ab333-9ed9-4f08-a3f5-60427249fbc0)
 
 - g++ -std=c++11 RuleEngine.cpp -o rule_engine -lsqlite3
 `Run the application:`
+![image](https://github.com/user-attachments/assets/13116f9a-e885-4884-8e76-a312297453b3)
 
 - ./rule_engine
  #  Code Functionality
@@ -121,6 +125,9 @@ Expected Output
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     rule_string TEXT NOT NULL
 );
+
+![image](https://github.com/user-attachments/assets/08b1ba49-4a85-4da0-8f23-f990a7d6d14d)
+
 `Future Improvements`
 - Complex Condition Parsing: Extend the rule parser to handle more complex conditions, such as string comparisons.
 - Error Handling: Improve exception handling for invalid input and unexpected edge cases.
