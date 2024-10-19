@@ -1,4 +1,4 @@
-# Zeotap Assignment
+# Zeotap 
 
 
 1. **Rule Engine with AST**: A 3-tier rule engine that evaluates user eligibility based on dynamically created and evaluated rules represented using an Abstract Syntax Tree (AST).
