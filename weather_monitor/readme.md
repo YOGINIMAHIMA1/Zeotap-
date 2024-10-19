@@ -69,6 +69,9 @@ By default, the application will:
 - Trigger alerts based on predefined thresholds.
 - You can modify the weather-fetching interval and alert thresholds by editing the source code.
 
+  ![image](https://github.com/user-attachments/assets/f2ef81c7-9299-44dc-988c-8ea3eb138e0a)
+
+
 # Database Structure
 The application uses a SQLite database weather_data.db. The key table DailyWeather is structured as follows:
 
