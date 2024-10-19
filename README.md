@@ -1,6 +1,5 @@
 # Zeotap Assignment
 
-This repository contains two applications developed for the Zeotap assignment:
 
 1. **Rule Engine with AST**: A 3-tier rule engine that evaluates user eligibility based on dynamically created and evaluated rules represented using an Abstract Syntax Tree (AST).
 2. **Real-Time Data Processing System for Weather Monitoring**: A real-time data processing system that monitors weather conditions using the OpenWeatherMap API and provides summarized insights with rollups and aggregates.
