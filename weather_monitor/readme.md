@@ -35,7 +35,7 @@
 - temp: Current temperature in Kelvin (converted to Celsius).
 - feels_like: Feels like temperature in Celsius.
 - dt: Unix timestamp for data retrieval time.
-`Note: You will need an API key from OpenWeatherMap to access the API.`
+- Note: You will need an API key from OpenWeatherMap to access the API.
 
 # Setup Instructions
 `Prerequisites`
@@ -80,7 +80,7 @@ The application uses a SQLite database weather_data.db. The key table DailyWeath
 - max_temp	REAL	Maximum temperature for the day
 - min_temp	REAL	Minimum temperature for the day
 - condition	TEXT	Dominant weather condition
-`Key Features`
+# Key Features
 - Real-Time Data Fetching: Automatically retrieves weather data at regular intervals.
 - Daily Summaries: Calculates daily weather averages, maximums, and minimums.
 - Alerts: Customizable thresholds for extreme weather conditions.
